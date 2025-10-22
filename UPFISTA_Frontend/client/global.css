@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 222.2 84% 4.9%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220 8.9% 46.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14.3% 95.9%;
+    --sidebar-accent-foreground: 220 8.9% 46.1%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* UPFISTA Brand Colors */
+    --brand-purple: 262 83% 58%;
+    --brand-purple-light: 262 83% 70%;
+    --brand-purple-dark: 262 83% 45%;
+    --brand-blue: 217 91% 60%;
+    --brand-blue-light: 217 91% 75%;
+    --brand-blue-dark: 217 91% 45%;
+    --brand-gradient: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(217 91% 60%) 100%);
+  }
+
+  .dark {
+    /* Modern soft dark backgrounds - professional and comfortable */
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+
+    /* Cards with subtle elevation and soft contrast */
+    --card: 220 13% 12%;
+    --card-foreground: 220 9% 93%;
+
+    /* Popovers with slight elevation over cards */
+    --popover: 220 13% 14%;
+    --popover-foreground: 220 9% 93%;
+
+    /* Primary brand colors remain vibrant but accessible */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary elements with balanced contrast */
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 220 9% 85%;
+
+    /* Muted elements for subtle text and backgrounds */
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 70%;
+
+    /* Accent elements slightly lighter than secondary */
+    --accent: 220 13% 18%;
+    --accent-foreground: 220 9% 90%;
+
+    /* Destructive colors with appropriate dark mode contrast */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs with subtle definition */
+    --border: 220 13% 20%;
+    --input: 220 13% 16%;
+    --ring: 262 83% 58%;
+
+    /* Sidebar with professional dark gradient */
+    --sidebar-background: 220 13% 11%;
+    --sidebar-foreground: 220 9% 88%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 17%;
+    --sidebar-accent-foreground: 220 9% 88%;
+    --sidebar-border: 220 13% 19%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* UPFISTA Brand Colors - Enhanced for Dark Mode */
+    --brand-purple: 262 83% 65%;
+    --brand-purple-light: 262 83% 75%;
+    --brand-purple-dark: 262 83% 50%;
+    --brand-blue: 217 91% 65%;
+    --brand-blue-light: 217 91% 78%;
+    --brand-blue-dark: 217 91% 52%;
+    --brand-gradient: linear-gradient(135deg, hsl(262 83% 65%) 0%, hsl(217 91% 65%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Dark mode enhancements for professional appearance */
+  .dark {
+    /* Smoother gradients for dark mode */
+    .bg-gradient-to-br.from-gray-50.via-white.to-blue-50 {
+      @apply from-slate-900/50 via-slate-800/30 to-blue-950/50;
+    }
+
+    .bg-gradient-to-br.from-gray-50.to-white {
+      @apply from-slate-900/30 to-slate-800/20;
+    }
+
+    /* Enhanced card appearance in dark mode */
+    .border-gray-100 {
+      @apply border-slate-800;
+    }
+
+    .border-gray-200 {
+      @apply border-slate-700;
+    }
+
+    /* Text color improvements */
+    .text-gray-600 {
+      @apply text-slate-400;
+    }
+
+    .text-gray-700 {
+      @apply text-slate-300;
+    }
+
+    .text-gray-500 {
+      @apply text-slate-500;
+    }
+
+    .text-gray-900 {
+      @apply text-slate-100;
+    }
+
+    /* Background improvements */
+    .bg-gray-50 {
+      @apply bg-slate-900/30;
+    }
+
+    .bg-gray-100 {
+      @apply bg-slate-800/50;
+    }
+
+    .bg-white {
+      @apply bg-slate-900;
+    }
+
+    /* Enhanced hover states for dark mode */
+    .hover\:bg-gray-100:hover {
+      @apply hover:bg-slate-800/70;
+    }
+
+    .hover\:shadow-lg:hover {
+      @apply hover:shadow-slate-900/25;
+    }
+
+    .hover\:shadow-md:hover {
+      @apply hover:shadow-slate-900/20;
+    }
+
+    /* Input and form elements */
+    .bg-gradient-to-br.from-gray-50.to-white {
+      @apply from-slate-800/40 to-slate-700/30;
+    }
+
+    /* Success states in dark mode */
+    .bg-green-50 {
+      @apply bg-green-950/30;
+    }
+
+    .border-green-200 {
+      @apply border-green-800;
+    }
+
+    .text-green-800 {
+      @apply text-green-300;
+    }
+
+    .text-green-700 {
+      @apply text-green-400;
+    }
+
+    .text-green-600 {
+      @apply text-green-400;
+    }
+
+    /* Info states in dark mode */
+    .bg-blue-50 {
+      @apply bg-blue-950/30;
+    }
+
+    .border-blue-200 {
+      @apply border-blue-800;
+    }
+
+    .text-blue-800 {
+      @apply text-blue-300;
+    }
+
+    .text-blue-700 {
+      @apply text-blue-400;
+    }
+
+    .text-blue-600 {
+      @apply text-blue-400;
+    }
+
+    /* Purple states in dark mode */
+    .bg-purple-50 {
+      @apply bg-purple-950/30;
+    }
+
+    .border-purple-200 {
+      @apply border-purple-800;
+    }
+
+    .text-purple-800 {
+      @apply text-purple-300;
+    }
+
+    .text-purple-700 {
+      @apply text-purple-400;
+    }
+
+    .text-purple-600 {
+      @apply text-purple-400;
+    }
+
+    /* Header backdrop in dark mode */
+    .bg-white\/80 {
+      @apply bg-slate-900/90;
+    }
+
+    /* Footer in dark mode */
+    .bg-gray-900 {
+      @apply bg-slate-950;
+    }
+
+    .text-gray-400 {
+      @apply text-slate-500;
+    }
+
+    .border-gray-800 {
+      @apply border-slate-700;
+    }
+
+    /* Enhanced backdrop blur for glassmorphism effect */
+    .backdrop-blur-md {
+      backdrop-filter: blur(12px) saturate(120%);
+    }
+  }
+}
